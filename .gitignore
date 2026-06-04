@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# Editable installs
+*.egg-link
+
+# Environments
+.venv/
+venv/
+env/
+.env
+
+# Secrets — never commit API keys or token files
+wandb_API_key
+wandb_API_key*
+*.key
+*_token
+*_TOKEN
+secrets.json
+.netrc
+
+# Pytest / coverage
+.pytest_cache/
+pytest-cache-files-*/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors / IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / experiment outputs (local development; cluster outputs land in $SCRATCH)
+logs/
+runs/
+wandb/
+outputs/
+multirun/                 # Hydra multirun directory
+
+# Cached datasets
+.cache/

@@ -1,0 +1,64 @@
+# YAML schema:
+# https://github.com/citation-file-format/citation-file-format/blob/main/schema-guide.md
+
+cff-version: 1.2.0
+message: "If you use UR-JEPA in academic work, please cite the paper below."
+type: software
+title: "UR-JEPA: Uniform Rectifiability as a Regularizer for Joint-Embedding Predictive Architectures"
+version: 0.1.0
+date-released: 2026-05-30
+license: Apache-2.0
+url: "https://github.com/SPATIOLYX/UR-JEPA"
+repository-code: "https://github.com/SPATIOLYX/UR-JEPA"
+authors:
+  - family-names: Le
+    given-names: Triet M.
+    affiliation: Spatiolyx LLC
+    email: tml@spatiolyx.ai
+    website: "https://spatiolyx.ai"
+keywords:
+  - self-supervised learning
+  - joint-embedding predictive architectures
+  - JEPA
+  - representation learning
+  - geometric measure theory
+  - uniform rectifiability
+  - Carleson square function
+  - world models
+
+# GitHub renders this block in the "Cite this repository" popover.
+preferred-citation:
+  type: article
+  title: "UR-JEPA: Uniform Rectifiability as a Regularizer for Joint-Embedding Predictive Architectures"
+  year: 2026
+  authors:
+    - family-names: Le
+      given-names: Triet M.
+      affiliation: Spatiolyx LLC
+      email: tml@spatiolyx.ai
+  url: "https://arxiv.org/abs/2606.01443"
+  journal: arXiv
+  number: "2606.01443"
+  doi: "10.48550/arXiv.2606.01443"
+
+# Companion reference for the CGLT square-function characterization that
+# the cglt* losses operationalize:
+references:
+  - type: article
+    title: "Square functions and uniform rectifiability"
+    authors:
+      - family-names: Chousionis
+        given-names: Vasileios
+      - family-names: Garnett
+        given-names: John
+      - family-names: Le
+        given-names: Triet
+      - family-names: Tolsa
+        given-names: Xavier
+    journal: "Transactions of the American Mathematical Society"
+    volume: 368
+    issue: 9
+    start: 6063
+    end: 6102
+    year: 2016
+    doi: "10.1090/tran/6603"

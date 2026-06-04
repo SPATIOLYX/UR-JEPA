@@ -1,0 +1,20 @@
+UR-JEPA
+Copyright 2026 Spatiolyx LLC
+
+This product includes software developed by Spatiolyx LLC
+(https://spatiolyx.ai).
+
+------------------------------------------------------------------------
+
+This product bundles a vendored implementation of SIGReg, originally
+distributed in LeJEPA:
+
+  R. Balestriero and Y. LeCun, "LeJEPA: Provable and Scalable
+  Self-Supervised Learning Without the Heuristics," arXiv:2511.08544
+  (2025).
+
+The vendored file (`baselines/sigreg.py`) is licensed under the MIT
+License (https://opensource.org/licenses/MIT) by its original authors.
+Two minimal portability edits were made by Spatiolyx LLC; see the
+file's docstring for details. The MIT license terms apply to that
+file in addition to this project's Apache-2.0 license terms.

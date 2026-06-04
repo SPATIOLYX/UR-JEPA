@@ -1,0 +1,34 @@
+# UR-JEPA dependencies.
+#
+# The core ur_jepa package (`pip install -e .`) only needs torch + numpy.
+# The other entries here are for the training / eval / viz scripts under
+# scripts/; equivalent to `pip install -e .[all]` from pyproject.toml.
+
+# --- Core library --------------------------------------------------------
+torch>=2.0
+numpy
+
+# --- Training harness (scripts/pretrain.py) ------------------------------
+torchvision
+timm
+hydra-core
+tqdm
+wandb
+# datasets 4.0+ removed Python loading-script support, which the
+# frgfm/imagenette dataset (used by scripts/pretrain.py) still ships
+# as. Pin <4.0 until the dataset is reshipped as parquet.
+datasets<4.0
+huggingface-hub
+
+# --- Galaxy10 SDSS loader (scripts/galaxy10_sdss.py) ---------------------
+# Required only when running +dataset=galaxy10. Zenodo HDF5 + sklearn
+# stratified split.
+h5py
+scikit-learn
+
+# --- Visualization (scripts/viz_geometry.py, scripts/plot_trajectory.py) --
+matplotlib
+scipy
+
+# --- Tests ---------------------------------------------------------------
+pytest

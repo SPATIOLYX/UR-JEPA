@@ -2,21 +2,21 @@
 
 **Uniform Rectifiability as a Regularizer for Joint-Embedding Predictive Architectures**
 
-A geometric-measure-theoretic alternative to LeJEPA's isotropic-Gaussian target for JEPA embeddings. UR&ndash;JEPA replaces the full-dimensional Gaussian target with a *uniformly n-rectifiable* measure: the canonical geometric-measure-theory notion of "quantitatively n-dimensional at every location and scale." We operationalize this through a Carleson-type square-function loss built on prior work: Chousionis&ndash;Garnett&ndash;Le&ndash;Tolsa, *Square functions and uniform rectifiability* (TAMS, 2016).
+A geometric-measure-theoretic alternative to LeJEPA's isotropic-Gaussian target for JEPA embeddings. UR&ndash;JEPA replaces the full-dimensional Gaussian target with a *uniformly n-rectifiable* measure: the canonical geometric-measure-theory notion of "quantitatively n-dimensional at every location and scale." The regularizer is a Gaussian-kernel smoothed Carleson-type square function built on prior work: Chousionis&ndash;Garnett&ndash;Le&ndash;Tolsa, *Square functions and uniform rectifiability* (TAMS, 2016).
 
-📄 **Paper**: [arXiv:2606.01443](https://arxiv.org/abs/2606.01443) &nbsp; · &nbsp; 🌐 **Project page**: https://spatiolyx.ai/research/ur-jepa &nbsp; · &nbsp; 🏛️ **License**: Apache-2.0
+📄 **Paper**: [arXiv:2606.01443](https://arxiv.org/abs/2606.01443) &nbsp; · &nbsp; 🌐 **Project page**: https://spatiolyx.ai/research/ur-jepa &nbsp; · &nbsp; 📝 **Status**: under review at TMLR &nbsp; · &nbsp; 🏛️ **License**: Apache-2.0
 
 ---
 
 ## Headline results
 
-- **+18 pp over IJEPA&ndash;IN22K foundation-model transfer on Galaxy10 SDSS** (81.4% vs 62.9% linear-probe). In-domain UR&ndash;JEPA on a 21K-image astronomical dataset substantially exceeds a 630M-parameter foundation model pretrained on 22M images.
-- **+0.83 pp over matched-recipe LeJEPA on ImageNet-10** (3 seeds, paired-*t* = +15.5, *p* &lt;&lt; 0.001) with ~30% lower seed variance.
-- **Statistically tied with LeJEPA at convergence on Galaxy10 SDSS, ImageNet-100, and EuroSAT (remote sensing).** Sample efficiency and lower seed variance are the practical differentiators at convergence; UR&ndash;JEPA holds $\sim\!2\times$ tighter seed variance on EuroSAT at 3 seeds.
-
-- **EuroSAT vs foundation-model transfer.** In-domain UR&ndash;JEPA and LeJEPA at $11$M parameters reach $96.0$ to $96.1\%$ on EuroSAT RGB, competitive with large remote-sensing foundation models (matching Scale-MAE ViT-L at a $25\times$ smaller backbone).
-- **Downstream transfer (ImageNet-100 &rarr; 5 datasets).** UR&ndash;JEPA leads LeJEPA on 4 of 5 transfer datasets (Aircraft, DTD, Flowers, Food) at the 800-epoch checkpoint, with a mean &Delta; of +0.32 pp (single seed).
-- **Geometrically distinct representation.** UR&ndash;JEPA produces an effectively low-rank covariance structure where LeJEPA yields near-isotropic projections. The covariance cliff sits at index ~20&ndash;25 across all four datasets (single-seed on Inet10/Galaxy10/Inet100; three-seed seed-stable confirmation on EuroSAT), consistent with Pope et al. (ICLR 2021) intrinsic-dimension estimates for natural images.
+- **UR&ndash;JEPA achieves +18 pp over IJEPA&ndash;IN22K foundation-model transfer on Galaxy10 SDSS** (81.4% vs 62.9% linear-probe). In-domain UR&ndash;JEPA on a 21K-image astronomical dataset substantially exceeds a 630M-parameter foundation model pretrained on 22M images.
+- **UR&ndash;JEPA outperforms LeJEPA on in-domain linear-probe accuracy on ImageNet-10 and ImageNet-100** at matched recipe and 3 seeds: Inet10 &Delta; = +0.83 pp (paired-*t* = +15.5, *p* &lt;&lt; 0.001) with ~30% lower seed variance; Inet100 final-acc &Delta; = +1.81 pp (paired-*t* = 3.14, one-sided *p* = 0.044, *positive on all 3 seeds*) at 800 epochs.
+- **Statistically tied with LeJEPA at convergence on Galaxy10 SDSS and EuroSAT** (3 seeds each). On EuroSAT the in-domain pair (UR&ndash;JEPA 95.97%, LeJEPA 96.11%) is competitive with Scale-MAE (ViT-L, ~300M params) at a 25&times; smaller backbone (resnet18, 11M params).
+- **UR&ndash;JEPA bounds the local-density square-function it optimizes.** On ImageNet-100, the loss's own per-image RMS|&Delta;| diagnostic has 5 to 40&times; fewer high-severity points under UR&ndash;JEPA than LeJEPA at every absolute threshold (e.g., 6 vs 198 above 0.72; ratio 33&times;). The mechanism is direct: L<sup>CGLT</sup> minimizes the same statistic.
+- **Anomalous classes are templated.** A 3-seed clustering probe on the CGLT log-density &Delta; statistic flags Inet100 test images as anomalous when they are dominated by one repeating structure (American coot, garden spider, tile roof, window screen, computer keyboard, honeycomb). Seed-stable (cross-seed Spearman 0.63) and cloud-robust (Spearman 0.84), exactly what the dyadic log-density square function is built to detect.
+- **Geometrically distinct representation.** UR&ndash;JEPA produces an effectively low-rank covariance structure where LeJEPA yields near-isotropic projections. The covariance cliff sits at index ~20&ndash;25 with a 5 to 6 order-of-magnitude top-to-bottom ratio across all four datasets, with per-dimension Gaussianity preserved (Shapiro-Wilk *W* &asymp; 0.99); LeJEPA's spectrum is near-flat (top-to-bottom ratio at most 3.6).
+- **The AD-regularity anchor is empirically dispensable.** A 3-seed Galaxy10 ablation removes the Ahlfors&ndash;David anchor from L<sup>CGLT</sup> and matches the headline with tighter seed variance (&plusmn;0.0009 vs &plusmn;0.0017), simplifying the recipe by one hyperparameter.
 
 ---
 
